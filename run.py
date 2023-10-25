@@ -139,9 +139,4 @@ class Game:
             print("Too bad, the computer sank all of your battleships.")
 
 
-
-    
-
-
-
 if __name__ == "__main__":
