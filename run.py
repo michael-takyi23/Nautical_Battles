@@ -42,7 +42,7 @@ class Player:
         """Allow the player to make a guess on the opponent's board."""
         while True:
             try:
-                guess_input = input("Enter your guess(row col): ")
+                guess_input = input("Enter your guess(row col):\n ")
                 row, col = map(int, guess_input.split())
                 if self.board.valid_guess(row, col):
                     return row, col
@@ -67,6 +67,38 @@ class ComputerPlayer:
             col = random.randint(0, self.grid_size - 1)
             if self.board.grid[row][col] not in ('H', 'M'):
                 return row, col
+
+
+# Game class represents the main game logic.
+class Game:
+    def __init__(self, grid_size, num_ships):
+        self.grid_size = grid_size
+        self.num_ships = num_ships
+        self.player_board = Board(grid_size)
+        self.computer_board = Board(grid_size)
+        player_name = input("Please enter your name:\n ")
+        self.player = Player(player_name, self.player_board)
+        self.computer = ComputerPlayer(self.computer_board, grid_size)
+
+    def play(self):
+        """Main game loop."""
+        self.player_board.place_ships(self.num_ships)
+        self.computer_board.place_ships(self.num_ships)
+        while (self.player.score < self.num_ships and
+               self.computer.score < self.num_ships):
+            self.display_boards()
+            self.player_turn()
+            self.computer_turn()
+        self.end_game()
+
+    def display_boards(self):
+        """Display both player's and computer's boards."""
+        print(f"\n{self.player.name}'s Board (B represents your ships):")
+        self.player.board.display()
+        print("\nComputer's Board:")
+        self.computer.board.display(hide_ships=True)
+
+    
 
 
 
