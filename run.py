@@ -52,5 +52,22 @@ class Player:
                 print("Invalid input. Enter your guess as 'row column'.")
 
 
+# ComputerPlayer class represents the computer opponent.
+class ComputerPlayer:
+    def __init__(self, board, grid_size):
+        self.name = "Computer"
+        self.board = board
+        self.grid_size = grid_size
+        self.score = 0
+
+    def make_guess(self):
+        """Computer makes a random guess on the opponent's board."""
+        while True:
+            row = random.randint(0, self.grid_size - 1)
+            col = random.randint(0, self.grid_size - 1)
+            if self.board.grid[row][col] not in ('H', 'M'):
+                return row, col
+
+
 
 if __name__ == "__main__":
