@@ -140,3 +140,11 @@ class Game:
 
 
 if __name__ == "__main__":
+    game = Game(grid_size=8, num_ships=6)
+    game.play()
+    while True:
+        play_again = input("Would you like to play again? (y/n):\n").lower()
+        if play_again != 'y':
+            break
+        game = Game(grid_size=8, num_ships=6)
+        game.play()
