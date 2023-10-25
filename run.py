@@ -98,6 +98,19 @@ class Game:
         print("\nComputer's Board:")
         self.computer.board.display(hide_ships=True)
 
+    def player_turn(self):
+        """Handle the player's turn."""
+        row, col = self.player.make_guess()
+        if self.computer.board.grid[row][col] == 'B':
+            print("Congratulations! You hit a battleship!")
+            self.player.score += 1
+            self.computer.board.grid[row][col] = 'H'
+        else:
+            print("Sorry, it's a miss.")
+            self.computer.board.grid[row][col] = 'M'
+        self.display_scores()
+
+
     
 
 
