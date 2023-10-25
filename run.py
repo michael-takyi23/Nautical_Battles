@@ -31,4 +31,26 @@ class Board:
         return 0 <= row < self.size and 0 <= col < self.size
 
 
+# Player class represents a human player in the game.
+class Player:
+    def __init__(self, name, board):
+        self.name = name
+        self.board = board
+        self.score = 0
+
+    def make_guess(self):
+        """Allow the player to make a guess on the opponent's board."""
+        while True:
+            try:
+                guess_input = input("Enter your guess(row col): ")
+                row, col = map(int, guess_input.split())
+                if self.board.valid_guess(row, col):
+                    return row, col
+                else:
+                    print("Invalid guess. Try again.")
+            except ValueError:
+                print("Invalid input. Enter your guess as 'row column'.")
+
+
+
 if __name__ == "__main__":
