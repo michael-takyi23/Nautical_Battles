@@ -123,6 +123,12 @@ class Game:
             self.player.board.grid[row][col] = 'M'
         self.display_scores()
 
+    def display_scores(self):
+        """Display current scores for both player and computer."""
+        print(f"{self.player.name}'s Score: {self.player.score}")
+        print(f"{self.computer.name}'s Score: {self.computer.score}")
+        print("."*35)
+
 
     
 
