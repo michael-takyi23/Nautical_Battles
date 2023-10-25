@@ -1,5 +1,6 @@
 import random
 
+
 class Board:
     def __init__(self, size):
         # Initialize a grid with 'O' which represents water/empty space.
