@@ -129,6 +129,16 @@ class Game:
         print(f"{self.computer.name}'s Score: {self.computer.score}")
         print("."*35)
 
+    def end_game(self):
+        """Display the end game message based on who won."""
+        print("\nGame Over!")
+        if self.player.score == self.num_ships:
+            print(f"Congratulations, {self.player.name}! You sank all of the "
+                  f"computer's battleships.")
+        else:
+            print("Too bad, the computer sank all of your battleships.")
+
+
 
     
 
