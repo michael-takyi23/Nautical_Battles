@@ -110,6 +110,19 @@ class Game:
             self.computer.board.grid[row][col] = 'M'
         self.display_scores()
 
+    def computer_turn(self):
+        """Handle the computer's turn."""
+        row, col = self.computer.make_guess()
+        print(f"Computer guessed ({row}, {col}).")
+        if self.player.board.grid[row][col] == 'B':
+            print("Computer hit one of your ships!")
+            self.computer.score += 1
+            self.player.board.grid[row][col] = 'H'
+        else:
+            print("Computer missed.")
+            self.player.board.grid[row][col] = 'M'
+        self.display_scores()
+
 
     
 
