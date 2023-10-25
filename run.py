@@ -1,4 +1,34 @@
 import random
 
+class Board:
+    def __init__(self, size):
+        # Initialize a grid with 'O' which represents water/empty space.
+        self.grid = [['O' for _ in range(size)] for _ in range(size)]
+        self.size = size
+
+    def display(self, hide_ships=False):
+        """Display the board. If hide_ships is True, ships are hidden."""
+        for row in self.grid:
+            for cell in row:
+                if hide_ships and cell == 'B':
+                    print('.', end=' ')
+                else:
+                    print(cell, end=' ')
+            print()
+
+    def place_ships(self, num_ships):
+        """Place a given number of ships randomly on the board."""
+        for _ in range(num_ships):
+            while True:
+                rows = random.randint(0, self.size - 1)
+                cols = random.randint(0, self.size - 1)
+                if self.grid[rows][cols] == 'O':
+                    self.grid[rows][cols] = 'B'
+                    break
+
+    def valid_guess(self, row, col):
+        """Check if a given guess is within the board boundaries."""
+        return 0 <= row < self.size and 0 <= col < self.size
+
 
 if __name__ == "__main__":
