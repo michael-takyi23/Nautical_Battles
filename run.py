@@ -73,11 +73,17 @@ class ComputerPlayer:
 # Game class represents the main game logic.
 class Game:
     def __init__(self, grid_size, num_ships):
+        # Welcome message and game details
+        print("\n Welcome to NAUTICAL BATTLES!")
+        print(f" Board Size: {grid_size}")
+        print(f" Number of Ships: {num_ships}")
+        print("="*30)
         self.grid_size = grid_size
         self.num_ships = num_ships
         self.player_board = Board(grid_size)
         self.computer_board = Board(grid_size)
         player_name = input("Please enter your name:\n ")
+        print("."*30)
         self.player = Player(player_name, self.player_board)
         self.computer = ComputerPlayer(self.computer_board, grid_size)
 
