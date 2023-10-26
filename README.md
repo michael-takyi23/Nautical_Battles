@@ -42,8 +42,14 @@ Nautical Battles is a modern reimagining of the classic board game "Battleship."
 
     ![screenshot of feedback](assets.py/images/feedback-scores.png)
 
-6. **Game End Conditions**:
+5. **Game End Conditions**:
     - The game ends when either the player or computer sinks all of the opponent's ships.
     - A congratulatory or consolation message is displayed depending on the outcome.
     
     ![screenshot of end game](assets.py/images/end-game.png)
+
+6. **Replay Option**:
+    - Can't get enough? You can instantly start a new game after finishing! players have the option to play again or exit. 
+
+    ![screenshot of replay option](assets.py/images/replay-option.png)
+
