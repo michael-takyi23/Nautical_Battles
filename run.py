@@ -103,7 +103,7 @@ class Game:
             self.player_turn()
             self.computer_turn()
             self.display_scores()
-            input("Press [C] to continue to the next round..")
+            input("Press [enter] to continue to the next round..")
         self.end_game()
 
     def display_boards(self):
