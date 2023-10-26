@@ -12,7 +12,7 @@ class Board:
         for row in self.grid:
             for cell in row:
                 if hide_ships and cell == 'B':
-                    print('.', end=' ')
+                    print('O', end=' ')
                 else:
                     print(cell, end=' ')
             print()
@@ -38,6 +38,7 @@ class Player:
         self.name = name
         self.board = board
         self.score = 0
+        self.guesses = set()
 
     def make_guess(self):
         """Allow the player to make a guess on the opponent's board."""
@@ -45,7 +46,11 @@ class Player:
             try:
                 guess_input = input("Enter your guess(row col):\n ")
                 row, col = map(int, guess_input.split())
+                if (row, col) in self.guesses:
+                    print("You've already guessed that spot. Try again.")
+                    continue
                 if self.board.valid_guess(row, col):
+                    self.guesses.add((row, col))
                     return row, col
                 else:
                     print("Invalid guess. Try again.")
@@ -60,6 +65,7 @@ class ComputerPlayer:
         self.board = board
         self.grid_size = grid_size
         self.score = 0
+        self.guesses = set()
 
     def make_guess(self):
         """Computer makes a random guess on the opponent's board."""
