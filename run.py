@@ -47,7 +47,7 @@ class Player:
                 guess_input = input("Enter your guess(row col):\n ")
                 row, col = map(int, guess_input.split())
                 if (row, col) in self.guesses:
-                    print("You've already guessed that spot. Try again.")
+                    print("Spot already guessed. Try again.")
                     continue
                 if self.board.valid_guess(row, col):
                     self.guesses.add((row, col))
@@ -102,8 +102,10 @@ class Game:
             self.display_boards()
             self.player_turn()
             self.computer_turn()
+            self.display_scores()
+            input("Press [C] to continue to the next round..")
         self.end_game()
-
+        
     def display_boards(self):
         """Display both player's and computer's boards."""
         print(f"\n{self.player.name}'s Board (B represents your ships):")
@@ -114,14 +116,14 @@ class Game:
     def player_turn(self):
         """Handle the player's turn."""
         row, col = self.player.make_guess()
+        print("\nPlayer's Guess:", (row, col))
         if self.computer.board.grid[row][col] == 'B':
-            print("Congratulations! You hit a battleship!")
+            print("Well done! You hit a battleship!")
             self.player.score += 1
             self.computer.board.grid[row][col] = 'H'
         else:
             print("Sorry, it's a miss.")
             self.computer.board.grid[row][col] = 'M'
-        self.display_scores()
 
     def computer_turn(self):
         """Handle the computer's turn."""
@@ -134,7 +136,6 @@ class Game:
         else:
             print("Computer missed.")
             self.player.board.grid[row][col] = 'M'
-        self.display_scores()
 
     def display_scores(self):
         """Display current scores for both player and computer."""
