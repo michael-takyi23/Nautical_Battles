@@ -105,7 +105,7 @@ class Game:
             self.display_scores()
             input("Press [C] to continue to the next round..")
         self.end_game()
-        
+
     def display_boards(self):
         """Display both player's and computer's boards."""
         print(f"\n{self.player.name}'s Board (B represents your ships):")
