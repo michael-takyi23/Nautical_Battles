@@ -19,7 +19,7 @@
 10. [Acknowledgements](#acknowledgements)
 ---
 ## **Introduction**
-Nautical Battles is a modern reimagining of the classic board game "Battleship." Engage in a strategic duel against a computer opponent, placing your ships and then taking turns guessing where the enemy has hidden theirs. Will you emerge victorious?
+Nautical Battles is a modern reimagining of the classic board game "Battleship." Engage in a strategic duel against a computer opponent, and then taking turns guessing where the enemy has hidden theirs. Will you emerge victorious?
 
 ---
 ## **Features**
