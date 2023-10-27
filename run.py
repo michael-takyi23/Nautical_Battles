@@ -45,6 +45,7 @@ class Player:
         while True:
             try:
                 guess_input = input("Enter your guess(row col):\n ")
+                print("."*30)
                 row, col = map(int, guess_input.split())
                 if (row, col) in self.guesses:
                     print("Spot already guessed. Try again.")
