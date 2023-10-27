@@ -141,6 +141,25 @@ Thorough testing was a crucial part of the development process for this project.
 - Special thanks to OpenAI and their model, ChatGPT, for aiding in the testing phase.
 ---
 
+## **Bugs**
+#### **Bugs Encountered**
+1. **Visibility of Computer's Ships**: Initially, the computer's ships were represented by a '.', which made it easier for the player to guess their location. 
+
+2. **Repetitive Guesses**: There was an issue where the player could guess the same coordinates multiple times. 
+
+3.  **Feedback and Score Display Order**: The initial design of the game had feedback messages and scores spread out, which meant players had to scroll up to view them.
+
+4. **Board Representation**: The 'B' character was used to represent both water and the player's ships, leading to some confusion.
+
+#### **Bugs Solved**
+1. **Visibility of Computer's Ships**: I modified the board's `display` method to ensure that when the board is being displayed with `hide_ships=True`, ships represented by `'B'` on the computer's board would be displayed as `'O'`, thus hiding them from the player.
+
+2. **Repetitive Guesses**: I introduced a `guesses` set attribute for both the Player and ComputerPlayer classes. This set keeps track of all the coordinates that have already been guessed. Before allowing a guess, it is checked if it is already in the set. If so, the player was informed that the spot has already guessed and prompted to try again.
+
+3. **Feedback and Score Display Order**: I rearranged the game flow within the `play` method of the `Game` class. After each turn (both player's and computer's), the respective guesses, feedback messages, and updated scores were displayed in a sequential and consolidated manner. This change ensured that all relevant information for a given round was presented together, offering a better user experience.
+
+4. **Board Representation**: The board's `display` method was reviewed and ensured that ships on the player's board are represented by `'B'` and the water/empty spaces by `'O'`. The logic was adjusted to maintain this distinction and avoid any ambiguity.
+---
 ## **Acknowledgments**
 - Thanks to CI for their python essential template which provided all the files needed to run the mock terminal.
 - Recieved invaluable assistance from CI tutor support
