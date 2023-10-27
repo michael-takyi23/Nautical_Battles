@@ -15,7 +15,8 @@
 6. [Future Improvements](#future-improvements)
 7. [Testing](#testing)
 8. [Bugs](#bugs)
-9. [Acknowledgements](#acknowledgements)
+9. [Validator Testing](#validator-testing)
+10. [Acknowledgements](#acknowledgements)
 ---
 ## **Introduction**
 Nautical Battles is a modern reimagining of the classic board game "Battleship." Engage in a strategic duel against a computer opponent, placing your ships and then taking turns guessing where the enemy has hidden theirs. Will you emerge victorious?
@@ -159,6 +160,12 @@ Thorough testing was a crucial part of the development process for this project.
 3. **Feedback and Score Display Order**: I rearranged the game flow within the `play` method of the `Game` class. After each turn (both player's and computer's), the respective guesses, feedback messages, and updated scores were displayed in a sequential and consolidated manner. This change ensured that all relevant information for a given round was presented together, offering a better user experience.
 
 4. **Board Representation**: The board's `display` method was reviewed and ensured that ships on the player's board are represented by `'B'` and the water/empty spaces by `'O'`. The logic was adjusted to maintain this distinction and avoid any ambiguity.
+---
+
+## **Validator Testing**
+- PEP8 CI Linter
+    - All clear No errors were returned
+![screenshot of validator testing](assets.py/images/lintershot.png)
 ---
 ## **Acknowledgments**
 - Thanks to CI for their python essential template which provided all the files needed to run the mock terminal.
